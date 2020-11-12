@@ -44,6 +44,7 @@ require('includes/db.php');
 
     <div class="table">
         <h1 class="font-weight-bold">Contact Summary</h1>
+        <br>
         <table id="guestbook-table" class="display" data-order='[[0, "DESC"]]'>
             <thead>
             <tr>
