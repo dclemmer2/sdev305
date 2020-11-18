@@ -46,6 +46,12 @@ h1.display-4 {
     padding-top: 10px;
 }
 
+h2.display-4 {
+    color: #FC6F5C;
+    text-shadow: 2px 2px rgb(51, 13, 13);
+    padding-top: 10px;
+}
+
 @media(max-width: 576px) {
     h1.display-4 {
         padding-top: 20px;
@@ -75,7 +81,7 @@ button.btn:hover {
     text-align: center;
 }
 
-.submit {
+#guestbook-submit {
     border-radius: 5px;
     width: 5em;
     margin:0 auto;
@@ -86,9 +92,14 @@ button.btn:hover {
 #admin-link {
     color: #3caca4d1;
     font-style: italic;
+    margin-left: 10px;
 }
 
 #admin-link:hover {
     color: #b8ece9;
     text-decoration: none;
+}
+
+.copyright-text#guestbook {
+    padding-top: 15px!important;
 }
