@@ -37,7 +37,7 @@ require($_SERVER['HOME'] . '/db.php');
     <a class="navbar-name" href="#">Dana Clemmer</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ml-auto">
-            <a class="nav-link" href="guestbook.html">Guestbook</a>
+            <a class="nav-link" href="guestbook.php">Guestbook</a>
         </li>
     </ul>
 </nav>
