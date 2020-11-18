@@ -213,7 +213,7 @@ footer ul li,.taber
     color: red;
 }
 
-.submit {
+#resume-submit {
     border-radius: 5px;
     background-color: #FC6F5C!important;
     float: right;
