@@ -89,17 +89,3 @@ button.btn:hover {
     border: 1px solid #d36262;
 }
 
-#admin-link {
-    color: #3caca4d1;
-    font-style: italic;
-    margin-left: 10px;
-}
-
-#admin-link:hover {
-    color: #b8ece9;
-    text-decoration: none;
-}
-
-.copyright-text#guestbook {
-    padding-top: 15px!important;
-}
