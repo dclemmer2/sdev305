@@ -18,38 +18,14 @@ date_default_timezone_set('America/Los_Angeles');
 //include files
 require($_SERVER['HOME'] . '/db.php');
 require('includes/guestbookFunctions.php');
+
+$page_title = 'Confirmation';
+
+//Add Header
+include("includes/head.php");
+//Navbar
+include("includes/navbar.php");
 ?>
-
-
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS (Make sure Bootstrap CSS is first, most recent style link overrides-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/resume_styles.css">
-    <link rel="stylesheet" href="styles/admin_styles.css">
-    <link rel="stylesheet" href="styles/guestbook_confirmation_styles.css">
-
-    <title>Thank You Page</title>
-
-    <!--Favicon-->
-    <link rel="icon" href="images/profilepic.jpg">
-</head>
-<body>
-
-<!--##################    NAVBAR    ##################-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar-site">
-    <a class="navbar-name" href="#">Dana Clemmer</a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto">
-            <a class="nav-link" href="guestbook.php">Guestbook</a>
-        </li>
-    </ul>
-</nav>
 
 <!--Jumbotron header -->
 <div class="jumbotron">
@@ -72,7 +48,7 @@ require('includes/guestbookFunctions.php');
     if (validName($_POST['fname'])) {
         $fname = $_POST['fname'];
     } else {
-        echo "<p>Invalid first name</p>";
+        echo "<p class='text-danger'>*Invalid first name</p>";
         $isValid = false;
     }
 
@@ -81,7 +57,7 @@ require('includes/guestbookFunctions.php');
     if (validName($_POST['lname'])) {
         $lname = $_POST['lname'];
     } else {
-        echo "<p>Invalid last name</p>";
+        echo "<p class='text-danger'>*Invalid last name</p>";
         $isValid = false;
     }
 
@@ -105,7 +81,7 @@ require('includes/guestbookFunctions.php');
         if (validLinkedIn($_POST['linkedIn'])) {
             $linkedin = $_POST['linkedIn'];
         } else {
-            echo "<p>Invalid LinkedIn address</p>";
+            echo "<p class='text-danger'>*Invalid LinkedIn address</p>";
             $isValid = false;
         }
     } else {
@@ -118,7 +94,7 @@ require('includes/guestbookFunctions.php');
         if (validEmail($_POST['email'])) {
             $email = $_POST['email'];
         } else {
-            echo "<p>Invalid email</p>";
+            echo "<p class='text-danger'>*Invalid email</p>";
             $isValid = false;
         }
     } else {
@@ -130,7 +106,7 @@ require('includes/guestbookFunctions.php');
     if (validHowMet($_POST['met'])) {
         $how_met = $_POST['met'];
     } else {
-        echo "<p>Must select how we met</p>";
+        echo "<p class='text-danger'>*Must select how we met</p>";
         $isValid = false;
     }
 
@@ -156,7 +132,7 @@ require('includes/guestbookFunctions.php');
         if (validMailingList($_POST['email'])) {
             $email = $_POST['email'];
         } else {
-            echo "<p>Must provide an email address to be added to my mailing list</p>";
+            echo "<p class='text-danger'>*Must provide an email address to be added to my mailing list</p>";
             $isValid = false;
         }
 
@@ -172,6 +148,7 @@ require('includes/guestbookFunctions.php');
     }
 
     if (!$isValid) {
+        echo "<br><br><h5 class='text-danger font-weight-bold'>**Form is Invalid, Please Correct the Errors Shown Above</h5>";
         return;
     }
 
@@ -199,27 +176,5 @@ require('includes/guestbookFunctions.php');
     ?>
 </div>
 
-<!--##################    FOOTER    ##################-->
-<footer class="footer">
-    <!--  Bottom Row  -->
-    <div class="text-center copyright-text" id="guestbook">
-        <p>© Copyright 2020: Dana Clemmer</p>
-    </div>
-</footer>
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
-</body>
-</html>
+<!--##################    FOOTER SECTION    ##################-->
+<?php include('includes/footer.php');?>
