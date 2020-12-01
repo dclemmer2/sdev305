@@ -7,34 +7,14 @@
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+$page_title = 'Guestbook';
+
+//Add Header
+include("includes/head.php");
+//Navbar
+include("includes/navbar.php");
 ?>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/resume_styles.css">
-    <link rel="stylesheet" href="styles/guestbook_styles.css">
-
-    <title>Guestbook</title>
-    <!--Favicon-->
-    <link rel="icon" href="images/profilepic.jpg">
-</head>
-<body data-spy="scroll" data-target="#navbar-site" data-offset="80">
-
-<!--##################    NAVBAR    ##################-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar-site">
-    <a class="navbar-name" href="#">Dana Clemmer</a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto">
-            <a class="nav-link" href="resume.php">Resume</a>
-        </li>
-    </ul>
-</nav>
 
 <!--Jumbotron header -->
 <div class="jumbotron">
@@ -140,28 +120,5 @@ error_reporting(E_ALL);
     </form>
 </div>
 
-<!--##################    FOOTER    ##################-->
-<footer class="footer">
-    <br>
-    <a href="admin.php" class="rounded font-weight-bold" id="admin-link">Admin</a>
-
-    <!--  Bottom Row  -->
-    <div class="text-center copyright-text" id="guestbook">
-        <p>© Copyright 2020: Dana Clemmer</p>
-    </div>
-</footer>
-
-<!-- JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-<script src="scripts/guestbook.js"></script>
-</body>
-</html>
+<!--##################    FOOTER SECTION    ##################-->
+<?php include('includes/footer.php');?>
