@@ -48,11 +48,11 @@
     <div>
         <!--Left Column-->
         <div class="col text-left pt-2">
-            <p><a href="login.php" target="_blank" id="admin-link"><span class="fa fa-lock" id="adminLock"></span>Admin Login</a></p>
+            <p><a href="admin.php" target="_blank" id="admin-link"><span class="fa fa-lock" id="adminLock"></span>Admin Login</a></p>
         </div>
         <!--Right Column-->
         <div class="text-center copyright-text">
-            <p>© Copyright 2020: Dana Clemmer</p>
+            <p>© dclemmer.greenriverdev.com</p>
         </div>
     </div>
 </footer>
@@ -70,6 +70,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src="scripts/resume.js"></script>
+<script src="scripts/guestbook.js"></script>
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script>
     $('#guestbook-table').DataTable({
