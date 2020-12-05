@@ -1,3 +1,30 @@
+
+/* LANDING PAGE & RESUME PAGE STYLES */
+#about-index, #projects, #connect {
+    scroll-margin-top: 1.5em;
+}
+
+#about-index, #projects {
+    background-color: #4ecdc4d1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#about-body, .project-body, .project-images {
+    width: 75%;
+    margin: auto;
+}
+
+.resume-btn {
+    border-radius: 5px;
+    background-color: #FC6F5C!important;
+    border: 1px solid #d36262;
+    font-size: 20px;
+    color: white;
+    margin: 0 auto;
+    width: 13em;
+}
+
 body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     padding-top: 3.5em;
@@ -32,7 +59,7 @@ body {
 
 
 /***** Header Section ******/
-.header {
+header#index {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -40,13 +67,20 @@ body {
     background-image: url(../images/study-smallscrn.jpg);
 }
 
-.idCard {
+.idCard#index {
     margin: auto;
     background-color: #4ecdc4d1;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.idCard#resume {
+    margin: auto;
+    background-color: #4ecdc4d1;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 img {
@@ -83,10 +117,26 @@ h5.name {
 }
 
 @media(max-width:620px) {
-    .header {
+
+    .idCard#resume {
+        margin: auto;
+        background-color: #4ecdc4d1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    header#index {
         background-image: url(../images/study-smallscrn.jpg);
         text-align: center;
     }
+
+    header#resume {
+        padding-bottom: 33em;
+        text-align: center;
+    }
+
     .idCard {
         width: 335px;
         padding: 35px 0 20px;
@@ -100,9 +150,10 @@ h5.name {
 }
 
 @media(min-width:620px) {
-    .header {
+    header#index {
         background-image: url(../images/study.jpg);
     }
+
     .idCard {
         padding: 45px 50px 25px;
         width: 600px;
@@ -114,11 +165,12 @@ h5.name {
 }
 
 @media(min-width:1000px) {
-    .header {
+    header#index {
         background-image: url(../images/study-fullscrn.jpg);
     }
+
     .idCard {
-        padding: 45px 100px 15px;
+        padding: 45px 100px 45px;
         width: 800px;
     }
     img {
@@ -132,14 +184,9 @@ hr {
     background-color: gray;
 }
 
-.index-container {
+.index-container, .resume-container {
     max-width: 80%;
     margin: auto;
-}
-
-/*Landing Page*/
-#resume, #guestbook {
-    scroll-margin-top: 1.5em;
 }
 
 #about, #education, #skills, #experience, #achievements {
@@ -170,17 +217,28 @@ span.font-weight-bold {
     color: #e69797;
 }
 
-.proj-img {
-    width: 45%;
+.proj-img-index {
     margin-left: 30px;
     margin-right: auto;
-    padding-bottom: 15px;
+    width: 100%;
     border: 3px solid #FC6F5C;
     border-radius: 5px;
 }
 
+.proj-img-resume {
+    border: 3px solid #FC6F5C;
+    border-radius: 5px;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.proj-img-index:hover, .proj-img-resume:hover {
+    width: 105%;
+}
+
+
 @media(max-width: 787px) {
-    .proj-img {
+    .proj-img-index, .proj-img-resume {
         width: 90%;
     }
 }
