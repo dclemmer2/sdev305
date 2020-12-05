@@ -59,7 +59,7 @@ body {
 
 
 /***** Header Section ******/
-header#index {
+header#index-header {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -78,7 +78,6 @@ header#index {
 
 .idCard#resume {
     margin: auto;
-    background-color: #4ecdc4d1;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -120,19 +119,18 @@ h5.name {
 
     .idCard#resume {
         margin: auto;
-        background-color: #4ecdc4d1;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    header#index {
+    header#index-header {
         background-image: url(../images/study-smallscrn.jpg);
         text-align: center;
     }
 
-    header#resume {
+    header#resume-header {
         padding-bottom: 33em;
         text-align: center;
     }
@@ -150,7 +148,7 @@ h5.name {
 }
 
 @media(min-width:620px) {
-    header#index {
+    header#index-header {
         background-image: url(../images/study.jpg);
     }
 
@@ -165,14 +163,20 @@ h5.name {
 }
 
 @media(min-width:1000px) {
-    header#index {
+    header#index-header {
         background-image: url(../images/study-fullscrn.jpg);
     }
 
-    .idCard {
+    .idCard#resume {
         padding: 45px 100px 45px;
         width: 800px;
     }
+
+    .idCard#index {
+        padding: 45px 100px 15px;
+        width: 800px;
+    }
+
     img {
         width: 200px;
         margin-right: 80px;
@@ -218,7 +222,6 @@ span.font-weight-bold {
 }
 
 .proj-img-index {
-    margin-left: 30px;
     margin-right: auto;
     width: 100%;
     border: 3px solid #FC6F5C;
@@ -239,7 +242,7 @@ span.font-weight-bold {
 
 @media(max-width: 787px) {
     .proj-img-index, .proj-img-resume {
-        width: 90%;
+        width: 100%;
     }
 }
 
