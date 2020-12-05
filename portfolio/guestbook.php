@@ -8,7 +8,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+/*//Login info
+include('includes/loginPath.php');*/
+
 $page_title = 'Guestbook';
+//$page_specific_script = "<script src==\"scripts/guestbook.js=\"></script>";
 
 //Add Header
 include("includes/head.php");
