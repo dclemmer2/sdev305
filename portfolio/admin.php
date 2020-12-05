@@ -9,6 +9,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+/*//Login info
+include('includes/loginPath.php');*/
 
 //include files
 require($_SERVER['HOME'] . '/db.php');
