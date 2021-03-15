@@ -79,13 +79,12 @@ include("includes/head.php");
         </div>
     </div>
 </header>
-<hr>
-<br>
 
 
 <!--##################    BODY    ##################-->
 <div class="index-container">
-    <h1 id="about">About</h1><br>
+    <h1 id="about">About</h1>
+    <hr>
     <p>My name is Dana and I am currently a Junior studying Software Development at Green River College. My strengths
         include back-end development with Java and front-end web development with HTML/CSS, JavaScript, and
         PHP. I have worked on various projects, including creating a website with a team for a local nonprofit using
@@ -94,9 +93,8 @@ include("includes/head.php");
         purchased toy. My experience with multiple coding languages and with group projects will help me collaborate
         with others in the work force. I am seeking an internship that I’ll be able to put my skills to use. </p>
     <br>
+    <h1 id="education">Education</h1>
     <hr>
-    <br>
-    <h1 id="education">Education</h1><br>
     <p><span class="font-weight-bold">Green River College</span> - Auburn, WA <span class="float-right">September 2020 – Present</span>
     </p>
     <div class="education-content">
@@ -118,7 +116,6 @@ include("includes/head.php");
                <li>Database Fundamentals</li>
            </ul>-->
     </div>
-    <br><br>
     <p><span class="font-weight-bold">Green River College</span> - Auburn, WA <span class="float-right">January 2017 – August 2019</span>
     </p>
     <div class="education-content">
@@ -132,10 +129,9 @@ include("includes/head.php");
         </ul>
     </div>
     <br>
-    <hr>
-    <br>
     <div>
-        <h1 id="skills">Skills and Certifications</h1><br>
+        <h1 id="skills">Skills and Certifications</h1>
+        <hr>
         <ul>
             <li>Languages: Java, JavaScript, SQL</li>
             <li>Web: HTML/CSS</li>
@@ -145,9 +141,8 @@ include("includes/head.php");
         </ul>
     </div>
     <br>
+    <h1 id="projectsResume">Projects</h1>
     <hr>
-    <br>
-    <h1 id="experience">Experience</h1><br>
     <!-- <div class="card">
          <img src="images/kentOutreach.png" class="card-img-top" alt="...">
          <div class="card-body">
@@ -227,7 +222,8 @@ include("includes/head.php");
         <li>Utilized HTML/CSS in Notepad++ editor</li>
     </ul>
     <br>
-    <h2 id="employment">Employment</h2><br>
+    <h1 id="employment">Employment</h1>
+    <hr>
     <p><span class="font-weight-bold">YMCA of Greater Seattle (Kids Zone Counselor) </span> - Kent, WA<span
                 class="float-right"> 2019-2020</span>
     </p>
@@ -236,9 +232,8 @@ Sodexo at Seattle Pacific University (Caterer) </span> - Seattle, WA<span
                 class="float-right"> September 2017 – June 2018</span>
     </p>
     <br>
+    <h1 id="achievements">Achievements and Activities</h1>
     <hr>
-    <br>
-    <h1 id="achievements">Achievements and Activities</h1><br>
     <ul>
         <li>SPU President’s Scholar Award (4-year award), 2017</li>
         <li>Green River College High Honors Award, 2019</li>
