@@ -1,0 +1,91 @@
+#resume_btn {
+    position:absolute;
+    top:0;
+    background-color: #FC6F5C!important;
+    border: 1px solid #d36262;
+    padding: 3px;
+    width: 9em;
+}
+
+#resume_btn:hover {
+    background-color: #ff3f25!important;
+}
+
+.jumbotron {
+    background-image: url(../images/marble.jpg);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/***** Container ******/
+.container {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+@media(max-width: 800px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media(min-width: 800px) {
+    .container {
+        max-width: 65%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .container {
+        width: 50%;
+    }
+}
+
+
+h1.display-4 {
+    color: #FC6F5C;
+    text-shadow: 2px 2px rgb(51, 13, 13);
+    padding-top: 10px;
+}
+
+h2.display-4 {
+    color: #FC6F5C;
+    text-shadow: 2px 2px rgb(51, 13, 13);
+    padding-top: 10px;
+}
+
+@media(max-width: 576px) {
+    h1.display-4 {
+        padding-top: 20px;
+    }
+}
+
+@media(max-width: 420px) {
+    h1.display-4 {
+    font-size: 3em;
+    }
+}
+
+h3.lead {
+    font-family: 'Tangerine', cursive;
+}
+
+button.btn {
+    background-color: #FC6F5C!important;
+    border: 1px solid #d36262;
+}
+
+button.btn:hover {
+    background-color: #ff3f25!important;
+}
+
+.mail-list {
+    text-align: center;
+}
+
+#guestbook-submit {
+    border-radius: 5px;
+    width: 5em;
+    margin:0 auto;
+    background-color: #FC6F5C!important;
+    border: 1px solid #d36262;
+}
+

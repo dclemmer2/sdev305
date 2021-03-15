@@ -1,0 +1,36 @@
+/***** Container ******/
+.admin-container {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: white;
+    border-radius: 25px;
+    max-width: 80%;
+    margin: auto;
+}
+
+#guestbook-btn {
+    position:absolute;
+    top:0;
+    background-color: #FC6F5C!important;
+    border: 1px solid #d36262;
+    padding: 3px;
+    width: 6em;
+}
+
+#guestbook_btn:hover {
+    background-color: #ff3f25!important;
+}
+
+h1.display-4 {
+     color: #FC6F5C;
+     text-shadow: 2px 2px rgb(51, 13, 13);
+     padding-top: 10px;
+ }
+
+.jumbotron {
+    background-image: url(../images/marble.jpg);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+form {
+    padding-bottom: 20px;
+}
