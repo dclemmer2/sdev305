@@ -26,6 +26,7 @@ include("includes/header.html");
 //Navbar
 include("includes/navbar.php");
 ?>
+<body>
 
 <!--Jumbotron header -->
 <div class="jumbotron">

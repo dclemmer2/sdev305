@@ -10,6 +10,8 @@
     </ul>
 </nav>
 
+<body>
+
 <!--Jumbotron header -->
 <div class="jumbotron">
     <h1 class="display-4 font-weight-bold text-center">Admin Page</h1>

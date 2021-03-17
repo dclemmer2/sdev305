@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ml-auto">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="{{ @BASE }}">Home</a>
             </li>
             <li class="nav-item ml-auto">
-                <a class="nav-link" href="guestbook.php">Guestbook</a>
+                <a class="nav-link" href="guestbook">Guestbook</a>
             </li>
         </ul>
     </div>

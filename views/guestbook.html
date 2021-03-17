@@ -1,6 +1,8 @@
 <include href="views/header.html"></include>
 <include href="includes/navbar.php"></include>
 
+<body id="guestbook" data-spy="scroll" data-target="#navbar-site" data-offset="80">
+
 <!--Jumbotron header -->
 <div class="jumbotron">
     <h1 class="display-4 font-weight-bold text-center">Sign My Guestbook!</h1>
@@ -9,7 +11,7 @@
 </div>
 
 
-<div class="container pb-5" id="main">
+<div class="container mb-5 p-5 shadow bg-white" id="main">
     <form id="form" action="guestbook_confirmation.php" method="post">
         <fieldset class="form-group">
 
