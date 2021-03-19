@@ -1,0 +1,33 @@
+<!-- guestbook_submission.html
+  Displays guestbook submission summary
+-->
+
+<include href="views/includes/header.html"></include>
+<include href="views/includes/navbar.html"></include>
+
+<body id="guestbook" data-spy="scroll" data-target="#navbar-site" data-offset="80">
+
+<header class="pt-5 pb-5">
+    <h1 class="display-4 font-weight-bold text-center">Thank You for Signing my Guestbook!</h1>
+    <br>
+    <h4 class="font-weight-bold text-center">Summary</h4>
+</header>
+>
+
+
+<div class="container mb-5 p-5 shadow bg-white" id="main">
+    <p>Name: {{ @SESSION.person->getFname() }} {{ @SESSION.person->getLname() }}</p>
+    <p>Job Title: {{ @SESSION.person->getJobTitle() }}</p>
+    <p>Company: {{ @SESSION.person->getCompany() }}</p>
+    <p>LinkedIn URL: {{ @SESSION.person->getLinkedin() }}</p>
+    <p>Email: {{ @SESSION.person->getEmail() }}</p>
+    <p>How We Met: {{ @SESSION.person->getHowMet() }}</p>
+    <p>How We Met Other: {{ @SESSION.person->getOther() }}</p>
+    <p>Message: {{ @SESSION.person->getMessage() }}</p>
+    <p>Mailing List: {{ @SESSION.person->getMailingList() }}</p>
+    <p>Email Format: {{ @SESSION.person->getEmailFormat() }}</p>
+</div>
+
+<!--##################    FOOTER SECTION    ##################-->
+<include href="views/includes/footer.html"></include>
+

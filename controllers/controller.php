@@ -62,9 +62,13 @@ class Controller
             //Redirect to login
             $this->_f3->reroute('/login');
         }
+
+        global $database;
+        $this->_f3->set('results', $database->getPeople());
+
         //Display a view
         $view = new Template();
-        echo $view->render('views/admin.php');
+        echo $view->render('views/admin.html');
     }
 
 
@@ -73,123 +77,146 @@ class Controller
     {
         global $validator;
         global $dataLayer;
+        global $person;
+
+        //create session array of person
+        $_SESSION['person'] = $person;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Get the data from the POST array
-            $employeeName = trim($_POST['name']);
-            $time = $_POST['time'];
-            $date = $_POST['date'];
-            $employeePosition = trim($_POST['position']);
-            $clientMethod = trim($_POST['method']);
-            $clientLocation = trim($_POST['location']);
-            $locationOther = trim($_POST['locationOther']);
-            $clientQuestion = trim($_POST['question']);
-            $questionOther = trim($_POST['questionOther']);
-            $clientIncidentReport = trim($_POST['incidentReport']);
-            $clientIncReportNum = trim($_POST['incidentNum']);
-            $comments = trim($_POST['comments']);
+            $fName = trim($_POST['fname']);
+            $lName = trim($_POST['lname']);
+            $jobTitle = trim($_POST['jobTitle']);
+            $company = trim($_POST['company']);
+            $linkedIn = trim($_POST['linkedIn']);
+            $email = trim($_POST['email']);
+            $howMet = trim($_POST['met']);
+            $otherComment = trim($_POST['commentOther']);
+            $message = trim($_POST['message']);
+            $mailingList = trim($_POST['mailingList']);
+            $emailFormat = trim($_POST['format']);
 
 
-            if ($validator->validName($employeeName)) {
-                $_SESSION['employeeName'] = $employeeName;
-            } else {
-                $this->_f3->set("errors[employeeName]", "*Employee name is required and can only contain characters");
+            //If first name is valid --> Store in session
+            if ($validator->validName($fName)) {
+                $_SESSION['person']->setFname($fName);
+            } //First name is not valid -> Set an error in F3 hive
+            else {
+                $this->_f3->set("errors[fName]", "*First name is required and can only contain characters");
             }
 
-            if ($validator->validTime($time)) {
-                $incident->setTimeHelped($time);
-            } else {
-                $this->_f3->set("errors[time]", "*Time is required and needs to follow the correct format");
+            //If last name is valid --> Store in session
+            if ($validator->validName($lName)) {
+                $_SESSION['person']->setLname($lName);
+
+            } else //Last name is not valid -> Set an error in F3 hive
+            {
+                $this->_f3->set("errors[lName]", "*Last name is required and can only contain characters");
             }
 
-            if ($validator->validDate($date)) {
-                $incident->setDateHelped($date);
+            //If job title is input, store in session
+            if ($jobTitle !== "") {
+                $_SESSION['person']->setJobTitle($jobTitle);
+
             } else {
-                $this->_f3->set("errors[date]", "*Date is required and needs to follow the correct format");
+                $_SESSION['person']->setJobTitle("Not Listed");
             }
 
-            if ($validator->validPosition($employeePosition)) {
-                $incident->setPosition($employeePosition);
+            //If company is input, store in session
+            if ($company !== "") {
+                $_SESSION['person']->setCompany($company);
+
             } else {
-                $this->_f3->set("errors[employeePosition]", "*Position is required");
+                $_SESSION['person']->setCompany("Not Listed");
             }
 
-            if ($validator->validContactMethod($clientMethod)) {
-                $incident->setContactMethod($clientMethod);
-            } else {
-                $this->_f3->set("errors[clientMethod]", "*Contact method is required");
-            }
-
-            if ($validator->validLocation($clientLocation)) {
-                $incident->setLocation($clientLocation);
-            } else if ($clientLocation == "other") {
-                if ($validator->validLocationOther($locationOther)) {
-                    $incident->setLocation("");
-                    $incident->setLocationOther($locationOther);
-                    $dataLayer->addLocation($locationOther);
-                } else {
-                    $this->_f3->set("errors[otherLocation]", "Other location is required and can only contain 
-                        characters");
+            if ($linkedIn !== "") {
+                //If linkedin url is valid --> Store in session
+                if ($validator->validLinkedIn($linkedIn)) {
+                    $_SESSION['person']->setLinkedin($linkedIn);
+                } else //Linkedin url is not valid -> Set an error in F3 hive
+                {
+                    $this->_f3->set("errors[linkedIn]", '*LinkedIn address must start with "https" and contain "linkedin.com"');
                 }
             } else {
-                $this->_f3->set("errors[clientLocation]", "*Location is required");
+                $_SESSION['person']->setLinkedin("Not Listed");
             }
 
-            if ($validator->validQuestion($clientQuestion)) {
-                $incident->setQuestion($clientQuestion);
-            } else if ($clientQuestion == "other") {
-                if ($validator->validQuestionOther($questionOther)) {
-                    $incident->setQuestion("");
-                    $incident->setQuestionOther($questionOther);
-                    $dataLayer->addQuestion($questionOther);
+            if ($email !== "") {
+                //If email is valid --> Store in session
+                if ($validator->validEmail($email)) {
+                    $_SESSION['person']->setEmail($email);
+                } else //Email is not valid -> Set an error in F3 hive
+                {
+                    $this->_f3->set("errors[email]", "*Invalid email address");
+                }
+            } else {
+                $_SESSION['person']->setEmail("Not Listed");
+            }
+
+            //If how met is valid --> Store in session
+            if ($validator->validHowMet($howMet)) {
+                $_SESSION['person']->setHowMet($howMet);
+            } else if ($howMet == "other") {
+                if($validator->validHowMetOther($otherComment)) {
+                    $_SESSION['person']->setHowMet("");
+                    $_SESSION['person']->setOther($otherComment);
                 } else {
-                    $this->_f3->set("errors[otherQuestion]", "Other question is required");
+                    $this->_f3->set("errors[other]", "*Must input how we met");
+                }
+            } else //how met is not valid -> Set an error in F3 hive
+            {
+                $this->_f3->set("errors[howMet]", "*Must select how we met");
+            }
+
+            //If message is input, store in session
+            if ($message !== "") {
+                $_SESSION['person']->setMessage($message);
+            } else {
+                $_SESSION['person']->setMessage("Not Listed");
+            }
+
+            //check if email is input if mailing list is checked
+            if (isset($mailingList)) {
+                if ($validator->validEmail($email)) {
+                    $_SESSION['person']->setMailingList("Yes");
+                    //If email format is input, store in session
+                    if ($validator->validFormat($emailFormat)) {
+                        $_SESSION['person']->setEmailFormat($emailFormat);
+                    } else {
+                        $_SESSION['person']->setEmailFormat("Not Listed");
+                    }
+                } else {
+                    $this->_f3->set("errors[mailingList]", "*Must provide an email address to be added to my mailing list");
                 }
 
             } else {
-                $this->_f3->set("errors[clientQuestion]", "*Question is required");
-            }
-
-            if (isset($clientIncidentReport)) {
-                $incident->setFiledIncidentReport('yes');
-            } else {
-                $incident->setFiledIncidentReport('no');
-            }
-
-            if(isset($comments)) {
-                $incident->setComments($comments);
+                $_SESSION['person']->setMailingList("No");
             }
 
             if (empty($this->_f3->get('errors'))) {
-                $_SESSION['incident'] = $incident;
                 //Redirect to submission page
                 $this->_f3->reroute('/submission');
             }
         }
 
         //get arrays
-        $this->_f3->set('questions', $dataLayer->getQuestions());
-        $this->_f3->set('locations', $dataLayer->getLocations());
-        $this->_f3->set('positions', $dataLayer->getPositions());
-        $this->_f3->set('methods', $dataLayer->getContactMethods());
-       // $this->_f3->set('incidentReports', $dataLayer->getIncidentReportOptions());
+        $this->_f3->set('formats', $dataLayer->getMailingFormats());
+        $this->_f3->set('howMetOptions', $dataLayer->getHowMet());
 
         //make form sticky
-        $this->_f3->set('employeeName', isset($employeeName) ? $employeeName : "");
-        $this->_f3->set('clientTime', isset($time) ? $time : "");
-        $this->_f3->set('clientDate', isset($date) ? $date : "");
-        $this->_f3->set('clientQuestion', isset($clientQuestion) ? $clientQuestion : "");
-        $this->_f3->set('clientQuestionOther', isset($questionOther) ? $questionOther : "");
-        $this->_f3->set('clientLocation', isset($clientLocation) ? $clientLocation : "");
-        $this->_f3->set('clientLocationOther', isset($locationOther) ? $locationOther : "");
-        $this->_f3->set('employeePosition', isset($employeePosition) ? $employeePosition : "");
-        $this->_f3->set('clientMethod', isset($clientMethod) ? $clientMethod : "");
-        $this->_f3->set('clientIncidentReport', isset($clientIncidentReport) ? $clientIncidentReport : "");
-        $this->_f3->set('clientIncReportNum', isset($clientIncReportNum) ? $clientIncReportNum : "");
-        $this->_f3->set('clientComments', isset($comments) ? $comments : "");
-        $this->_f3->set('unknown', "unknown");
+        $this->_f3->set('fName', isset($fName) ? $fName : "");
+        $this->_f3->set('lName', isset($lName) ? $lName : "");
+        $this->_f3->set('jobTitle', isset($jobTitle) ? $jobTitle : "");
+        $this->_f3->set('company', isset($company) ? $company : "");
+        $this->_f3->set('linkedIn', isset($linkedIn) ? $linkedIn : "");
+        $this->_f3->set('email', isset($email) ? $email : "");
+        $this->_f3->set('howMet', isset($howMet) ? $howMet : "");
+        $this->_f3->set('commentOther', isset($otherComment) ? $otherComment : "");
+        $this->_f3->set('message', isset($message) ? $message : "");
+        $this->_f3->set('mailingList', isset($mailingList) ? $mailingList : "");
+        $this->_f3->set('mailFormat', isset($emailFormat) ? $emailFormat : "");
         $this->_f3->set('other', "other");
-
         //Display a view
         $view = new Template();
         echo $view->render('views/guestbook.html');
@@ -198,18 +225,25 @@ class Controller
     /** Submission page */
     function submission()
     {
+        global $database;
+        $database->insertPerson($_SESSION['person']);
+
         //Display a view
         $view = new Template();
-        echo $view->render('views/submission.html');
+        echo $view->render('views/guestbook_submission.html');
+
+        //Clear the SESSION array
+        session_destroy();
     }
 
     /** Logout */
     function logout()
     {
-        session_destroy();
-
         //Redirect to login
         $this->_f3->reroute('/login');
+
+        //Clear the SESSION array
+        session_destroy();
     }
 
 }

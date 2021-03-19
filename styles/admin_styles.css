@@ -20,13 +20,7 @@
     background-color: #ff3f25!important;
 }
 
-h1.display-4 {
-     color: #FC6F5C;
-     text-shadow: 2px 2px rgb(51, 13, 13);
-     padding-top: 10px;
- }
-
-.jumbotron {
+.jumbotron#admin {
     background-image: url(../images/marble.jpg);
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }

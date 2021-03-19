@@ -44,8 +44,9 @@ body#body-home {
 }
 
 .header-home {
-    background-color: #6c5949c4;
+    background-color: #dfdcd959;
     padding: 20px;
+    text-shadow: 2px 2px black;
 }
 
 .content-header {
@@ -55,6 +56,21 @@ body#body-home {
 @media (min-width: 1500px) {
     .content-header {
         padding: 2em 30% 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .index-container {
+        width: 95%!important;
+        background-color: #6c5949c4;
+        border: none;
+    }
+    .content-header {
+        padding: 2em 0 0;
+    }
+    .header-home {
+        background-color: #6c5949c4;
+        text-shadow: none;
     }
 }
 
@@ -77,12 +93,9 @@ h1 {
     background-color: #486664;
 }
 
-@media (max-width: 600px) {
-    .index-container {
-        width: 85%;
-    }
-    .content-header {
-        padding: 2em 0 0;
+@media (min-width: 992px) {
+    .card {
+        margin: 10px;
     }
 }
 
@@ -141,35 +154,12 @@ span.font-weight-bold {
 }
 
 #project-link:hover{
-    color: #e69797;
-}
-
-.proj-img-index {
-    margin-right: auto;
-    width: 100%;
     border: 3px solid #FC6F5C;
-    border-radius: 5px;
 }
 
 .proj-img-resume {
     width: 100%;
 }
-
-.proj-img-index:hover, .proj-img-resume:hover {
-    border: 3px solid #FC6F5C;
-}
-
-
-@media(max-width: 787px) {
-    .proj-img-index, .proj-img-resume {
-        width: 100%;
-    }
-}
-
-p#secondProj {
-    clear: both;
-}
-
 
 /***** Login Pg Styles ******/
 form#login {

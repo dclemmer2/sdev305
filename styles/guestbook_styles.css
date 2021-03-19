@@ -1,5 +1,7 @@
 body#guestbook {
     background-color: #80808029;
+    background-image: url(../images/marble.jpg);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #resume_btn {
@@ -15,16 +17,7 @@ body#guestbook {
     background-color: #ff3f25!important;
 }
 
-.jumbotron {
-    background-image: url(../images/marble.jpg);
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
 /***** Container ******/
-.container {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
 @media(max-width: 800px) {
     .container {
         max-width: 80%;
@@ -45,21 +38,13 @@ body#guestbook {
 
 
 h1.display-4 {
-    color: #FC6F5C;
+    color: #348a83;;
     text-shadow: 2px 2px rgb(51, 13, 13);
-    padding-top: 10px;
 }
 
 h2.display-4 {
     color: #FC6F5C;
     text-shadow: 2px 2px rgb(51, 13, 13);
-    padding-top: 10px;
-}
-
-@media(max-width: 576px) {
-    h1.display-4 {
-        padding-top: 20px;
-    }
 }
 
 @media(max-width: 420px) {
@@ -92,4 +77,5 @@ button.btn:hover {
     background-color: #FC6F5C!important;
     border: 1px solid #d36262;
 }
+
 

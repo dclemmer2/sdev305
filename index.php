@@ -21,6 +21,8 @@ $f3 = Base::instance();
 $controller = new Controller($f3);
 $dataLayer = new DataLayer($dbh);
 $validator = new Validate($dataLayer);
+$database = new Database($dbh);
+$person = new Person();
 
 //Turn on Fat-Free error reporting
 $f3->set('DEBUG', 3);

@@ -1,6 +1,6 @@
 <?php
 /* model/validate.php
- * Contains validation functions for Food app
+ * Contains validation functions for portfolio
  *
  */
 
@@ -36,54 +36,63 @@ class Validate
         return !empty($password) && $password == $adminPassword;
     }
 
+    /**
+     * returns true if name is not empty
+     * @param $name
+     * @return bool
+     */
     function validName($name)
     {
-        return !empty($name) && preg_match("/^[a-zA-Z ]+$/", $name)
-            || preg_match("/^[a-zA-Z]+ [a-zA-Z]+$/", $name);
+        return !empty($name) && preg_match("/^[a-zA-Z ]+$/", $name);
     }
 
-    function validTime($time)
+    /**
+     * returns true if email entered is valid
+     * @param $email
+     * @return bool
+     */
+    function validEmail($email)
     {
-        return !empty($time);
+        return preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/", $email);
     }
 
-    function validDate($date)
+    /**
+     * returns true if how met option was selected and in array from DataLayer class
+     * @param $howMet
+     * @return bool
+     */
+    function validHowMet($howMet)
     {
-        return !empty($date);
+        return !empty($howMet) && in_array($howMet, $this->_dataLayer->getHowMet());
     }
 
-    function validPosition($position)
+    /**
+     * Returns true if other is not empty and is not in array in DataLayer class
+     * @param $questionOther
+     * @return bool
+     */
+    function validHowMetOther($other)
     {
-        return !empty($position);
+        return !empty($other) && !in_array($other, $this->_dataLayer->getHowMet());
     }
 
-    function validContactMethod($contactMethod)
+    /**
+     * returns true if linkedin url is valid
+     * @param $linkedIn
+     * @return bool
+     */
+    function validLinkedIn($linkedIn)
     {
-        return !empty($contactMethod) and in_array($contactMethod, $this->_dataLayer->getContactMethods());
+        return (substr($linkedIn, 0, 5) == "https") && strpos($linkedIn, "linkedin.com");
     }
 
-    function validLocation($location)
+    /**
+     * returns true if email format option is not empty and is in array in DataLayer class
+     * @param $format
+     * @return bool
+     */
+    function validFormat($format)
     {
-        return !empty($location) && in_array($location, $this->_dataLayer->getLocations()) || $location == "unknown";
-    }
-
-    function validLocationOther($locationOther)
-    {
-        return !empty($locationOther) && !in_array($locationOther, $this->_dataLayer->getLocations());
-    }
-
-    function validQuestion($question)
-    {
-        return !empty($question) && in_array($question, $this->_dataLayer->getQuestions());
-    }
-
-    function validQuestionOther($questionOther)
-    {
-        return !empty($questionOther) && !in_array($questionOther, $this->_dataLayer->getQuestions());
-    }
-
-    function validIncidentReport($incidentReport)
-    {
-        return !empty($incidentReport);
+        return !empty($format) && in_array($format, $this->_dataLayer->getMailingFormats());
     }
 }
