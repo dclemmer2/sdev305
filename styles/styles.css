@@ -35,7 +35,6 @@ body, html {
 
 body#body-home {
     background-image: url("../images/paris-blurred.jpg");
-
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,9 +43,8 @@ body#body-home {
 }
 
 .header-home {
-    background-color: #dfdcd959;
+    background-color: #7c736b59;
     padding: 20px;
-    text-shadow: 2px 2px black;
 }
 
 .content-header {
@@ -76,6 +74,7 @@ body#body-home {
 
 h1#name {
     font-size:4em;
+    text-shadow: 2px 2px black;
 }
 
 h1 {
